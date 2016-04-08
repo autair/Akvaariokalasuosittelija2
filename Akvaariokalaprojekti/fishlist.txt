@@ -1,0 +1,20 @@
+marmoritapparakala;Carnegiella strigata;4;true;top;63;5.5;7.0;22;28;
+taistelukala;Betta splendens;7;false;top;63;6.0;7.5;24;30;
+helmirihmakala;Trichopodus leerii;12;false;top;200;6.0;7.5;24;28;
+hunajarihmakala;Trichogaster chuna;5;false;top;45;6.0;7.6;23;26;
+kultapyrstosateenkaarikala;Melanotaenia boesemani;12;true;mid;240;6.5;8.0;24;28;
+platy;Xiphophorus maculatus;5;true;mid;63;6.5;8.0;22;25;
+molli;Poecilia sphenopos;8;true;mid;100;6.8;8.0;25;28;
+neontetra;Paracheirodon innesi;4;true;mid;63;5.5;7.0;22;27;
+kirsikkatetra;Hyphessobrycon erythrostigma;8;true;mid;160;5.5;7.0;23;28;
+minirasbora;Boraras merah;3;true;mid;25;5.0;7.0;24;28;
+seeprapleko;Hypancistrus zebra;9;false;bottom;84;6.0;7.0;26;30;
+partamonni;Ancistrus cirrhosus;15;false;bottom;128;5.8;7.8;23;27;
+kaapiomonninen;Corydoras pygmaeus;3;true;bottom;45;6.0;7.0;24;27;
+pandamonninen;Corydoras panda;6;true;bottom;73;6.0;7.0;22;25;
+nuolimonninen;Corydoras hastatus;3;true;bottom;45;6.0;7.0;23;27;
+
+
+
+
+
