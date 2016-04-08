@@ -110,6 +110,10 @@ public class FishReferee {
     public int getSpeciesCount() {
         return this.list.size();
     }
+    
+    public ArrayList getSelectedFish() {
+        return this.selectedFish;
+    }
 
     public ArrayList getMidList() {
         return this.midlist;
