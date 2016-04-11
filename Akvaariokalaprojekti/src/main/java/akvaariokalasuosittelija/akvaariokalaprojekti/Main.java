@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package akvaariokalasuosittelija.akvaariokalaprojekti;
-
+import javax.swing.SwingUtilities;
 /**
  *
  * @author autair
@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) {
         
         GraphicUI ui = new GraphicUI();
-        ui.run();
+        SwingUtilities.invokeLater(ui);
         
     }
     
