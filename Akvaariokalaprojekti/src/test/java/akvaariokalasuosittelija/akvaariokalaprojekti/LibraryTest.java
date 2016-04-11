@@ -31,16 +31,33 @@ public class LibraryTest {
     }
     
     @Test
-    public void fishListIsEmptyIfVolumeTooSmall() {
-        l.generateFirstFishlist(10);
+    public void fishListIsEmptyIfVolumeIsZero() {
+        l.generateFirstFishlist(0);
         assertEquals(true, l.getCurrentList().isEmpty());
     }
     
     @Test
-    public void fishIsAddedToList() {
-        int aqMinSize = 25;
-        l.generateFirstFishlist(aqMinSize);
-        assertEquals(1, l.getSpeciesCount());
+    public void fishListIsEmptyIfVolumeTooSmall() {
+        l.generateFirstFishlist(10);
+        assertEquals(true, l.getCurrentList().isEmpty());
+    }
+    @Test
+    public void fishListIsNotGeneratedWhenAquariumIsSmallerThan25Litres() {
+        l.generateFirstFishlist(24);
+        assertEquals(true, l.getCurrentList().isEmpty());
+        
+    }
+    
+    @Test
+    public void speciesIsAddedToList() {
+        l.generateFirstFishlist(25);
+        assertEquals(1, l.getCurrentList().size());
+    }
+    
+    @Test
+    public void allSpeciesAddedIfAquariumIsaPool() {
+        l.generateFirstFishlist(10000);
+        assertEquals(l.listOfAllSpecies().size(), l.getCurrentList().size());
     }
   
     

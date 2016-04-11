@@ -43,9 +43,21 @@ public class FishRefereeTest {
     }
     
     @Test
-    public void firstListIsFormed() {
+    public void firstListIsFormed1() {
         f.firstLists();
         assertEquals(1, f.getBottomList().size());
+    }
+    
+    @Test
+    public void firstListIsFormed2() {
+        f.firstLists();
+        assertEquals(3, f.getMidList().size());
+    }
+    
+    @Test
+    public void firstListIsFormed3() {
+        f.firstLists();
+        assertEquals(1, f.getTopList().size());
     }
 
     @Test

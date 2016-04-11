@@ -42,6 +42,8 @@ public class UI {
         f.findSpecies(toive);
         f.update();
         f.printCurrentLists();
+        f.makeFinalList();
+        
         
         
 //        f.printMidList();

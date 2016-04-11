@@ -12,6 +12,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.ArrayList;
 
 /**
  *
@@ -25,6 +26,8 @@ public class FishReferee2Test {
     Library l;
     FishReferee f;
     Aquarium a;
+    Fish fish;
+    Species testspecies;
     
     
     @Before
@@ -32,14 +35,16 @@ public class FishReferee2Test {
         a = new Aquarium(100);
         l = new Library();
         f = new FishReferee(l.generateFirstFishlist(a.getVolume()),a);
+        testspecies = (Species)f.getAllList().get(0);
     }
     
 //    @Test
 //    public void fishCountWorks() {
-//        f.getSelectedFish().add(f.getAllList().indexOf(5));
-//        f.makeFinalList(); //Tässä on joku vika
-//        Fish fish = (Fish)f.getSelectedFish().get(0);
-//        assertEquals(20,fish.getAmount());
+//        f.updateAllSpeciesList(testspecies);
+//        f.makeFinalList(); //tämä ei toimi!!!! 
+//        fish = (Fish)f.getSelectedFish().get(0); //marmoritappara, 4cm
+//        System.out.println(fish.getSpecies().getName());
+//        assertEquals(23, fish.getAmount()); 
 //    }
     
     

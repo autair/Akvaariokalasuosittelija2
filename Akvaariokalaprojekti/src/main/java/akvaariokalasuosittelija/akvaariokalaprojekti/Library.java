@@ -19,7 +19,7 @@ public class Library {
     private File fishlist;
     private Scanner scanner;
     private ArrayList<Species> list;
-    //private ArrayList<Species> all;
+    private ArrayList<Species> all;
     private int aqSize;
 
     public Library() {
@@ -28,58 +28,59 @@ public class Library {
         this.aqSize = 0;
 
     }
-//
-//    public void listOfAllSpecies() {
-//        this.all = new ArrayList<Species>();
-//
-//        File fishlist = new File("fishlist.txt");
-//        Scanner scanner = null;
-//        try {
-//            scanner = new Scanner(fishlist);
-//        } catch (Exception e) {
-//            System.out.println("Kirjaston lukeminen epäonnistui. Virhe: " + e.getMessage());
-//            return;
-//        }
-//
-//        while (scanner.hasNextLine()) {
-//            String line = scanner.nextLine();
-//
-//            if (line.isEmpty()) {
-//                continue;
-//            }
-//
-//            String[] parts = line.split(";");
-//            Species s = new Species();
-//            s.setAqMinSize(Integer.parseInt(parts[5]));
-//            s.setFloor(parts[4]);
-//            s.setIsSocial(Boolean.parseBoolean(parts[3]));
-//            s.setLenght(Integer.parseInt(parts[2]));
-//            s.setLatin_name(parts[1]);
-//            s.setName(parts[0]);
-//            s.setpHmin(Double.parseDouble(parts[6]));
-//            s.setpHmax(Double.parseDouble(parts[7]));
-//            s.setTempMin(Integer.parseInt(parts[8]));
-//            s.setTempMax(Integer.parseInt(parts[9]));
-//
-//            this.all.add(s);
-//
-//        }
-//
-//        scanner.close();
-//
-//    }
+
+    public ArrayList listOfAllSpecies() {
+        this.all = new ArrayList<Species>();
+
+        File fishlist = new File("fishlist.txt");
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(fishlist);
+        } catch (Exception e) {
+            System.out.println("Kirjaston lukeminen epäonnistui. Virhe: " + e.getMessage());
+            return null;
+        }
+
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+
+            if (line.isEmpty()) {
+                continue;
+            }
+
+            String[] parts = line.split(";");
+            Species s = new Species();
+            s.setAqMinSize(Integer.parseInt(parts[5]));
+            s.setFloor(parts[4]);
+            s.setIsSocial(Boolean.parseBoolean(parts[3]));
+            s.setLenght(Integer.parseInt(parts[2]));
+            s.setLatin_name(parts[1]);
+            s.setName(parts[0]);
+            s.setpHmin(Double.parseDouble(parts[6]));
+            s.setpHmax(Double.parseDouble(parts[7]));
+            s.setTempMin(Integer.parseInt(parts[8]));
+            s.setTempMax(Integer.parseInt(parts[9]));
+
+            this.all.add(s);
+
+        }
+
+        scanner.close();
+        return this.all;
+
+    }
 
     public ArrayList getCurrentList() {
         return this.list;
     }
 
-    public int getSpeciesCount() {
-        return this.list.size();
-    }
+//    public int getSpeciesCount() {
+//        return this.list.size();
+//    }
 
     public ArrayList generateFirstFishlist(int aqVolume) {
-        if (aqVolume <= 0) {
-            System.out.println("Akvaarion tilavuus ei voi olla negatiivinen");
+        if (aqVolume <= 24) {
+            System.out.println("Akvaarion tilavuus ei voi olla negatiivinen eikä alle 25 litraa");
             return null;
         }
         File fishlist = new File("fishlist.txt");

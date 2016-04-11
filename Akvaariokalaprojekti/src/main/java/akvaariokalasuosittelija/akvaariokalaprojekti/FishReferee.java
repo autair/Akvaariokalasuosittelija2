@@ -40,6 +40,10 @@ public class FishReferee {
         this.makeMidFishList();
         this.makeTopFishList();
     }
+    
+    public void setSelected(ArrayList lis) {
+        this.selectedFish = lis;
+    }
 
     public String update() {
         
@@ -195,18 +199,32 @@ public class FishReferee {
     //tee metodi joka laskee valittujen lajien määrään akvaarion kokoon sopivaksi. 
     //Käyttäjä voi siis "valita akvaarion täyteen" tai valita vaikka 3 lajia, joiden määrää metodin pitää kasvattaa.
     
-    public void makeFinalList() {
-        while(true) {
-            for (Fish x:this.selectedFish) {
+    public void makeFinalList() { 
+       
+        int stop = 0;
+        while(stop != 5) {
+            
+            
+            try {
+                
+            for (Object x:this.selectedFish) {
                 if (this.getLengthOfSelectedFish() + 5 > this.a.getVolume()) {
+                    System.out.println("Kalojen yhtpituus suurempi kuin aq -tilavuus");
+                    stop = 5;
                     break;
                 }
-                if(x.getSpecies().isSocial == true) {
-                    if (this.getLengthOfSelectedFish() + x.getSpecies().getLenght() < this.a.getVolume()) {
-                        x.setAmount(x.getAmount() + 1);
+                Fish f = Fish.class.cast(x); //ei osaa tehdä kuin kerran
+                if(f.getSpecies().isSocial == true) {
+                    if (this.getLengthOfSelectedFish() + f.getSpecies().getLenght() < this.a.getVolume()) {
+                        f.setAmount((Integer)f.getAmount() + 1);
                     }
                 }
             }
+            
+            } catch (ClassCastException e) {
+                System.out.println("Tapahtui virhe: " + e.getMessage());
+            }
+            
             break;
         }
     }
