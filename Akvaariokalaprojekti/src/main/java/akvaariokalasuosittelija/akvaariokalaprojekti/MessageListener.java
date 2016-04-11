@@ -8,6 +8,6 @@ public class MessageListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        System.out.println("Viesti vastaanotettu!");
+        System.out.println("Seuraavaa on klikattu juu");
     }
 }
