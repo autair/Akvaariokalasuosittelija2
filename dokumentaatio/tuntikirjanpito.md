@@ -12,4 +12,4 @@ Päivä | Tunnit | Kuvaus
 06.04.2016 | 4h | FishRefereen toiminnan tarkempi suunnittelu ja toteutus, uusi luokkakaavio, koodikatselmointi
 07.04.2016 | 5h | Lisää koodia
 08.04.2016 | 4,5h | Vähäinen määrä koodia ja enimmäkseen taistelua gitin kanssa. Checkstyle raporttien teko ei toimi.
-
+11.04.2016 | 4h | Graafisen käyttöliittymän aloitus 
