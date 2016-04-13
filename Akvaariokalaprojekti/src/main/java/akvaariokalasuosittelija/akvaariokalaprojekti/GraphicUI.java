@@ -44,15 +44,13 @@ public class GraphicUI implements Runnable {
     }
     private JPanel generateNext() {
         JPanel panel = new JPanel(new GridLayout(1, 3));
-        JLabel text = new JLabel("Akvaarion koko: ");
+        JTextArea text = new JTextArea("Akvaarion koko: ");
         JTextField aqsize = new JTextField(); 
         JButton next = new JButton("Seuraava");
-        next.addActionListener(new MessageListener());
+        next.addActionListener(new MessageListener(aqsize));
         panel.add(text);
         panel.add(aqsize);
         panel.add(next);
-        
-        
         return panel;
     }
 

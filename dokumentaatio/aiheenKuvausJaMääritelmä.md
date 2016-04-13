@@ -6,13 +6,8 @@ Tämä ohjelma suunnitellaan vain makeanveden seura- ja lajiakvaarioita silmäll
 ####**Käyttäjät:**
 Tavallinen käyttäjä
 ####**Kaikkien käyttäjien toiminnot:**
-Tietojen etsintä:
-- eri kalalajien tietojen selaaminen
-- akvaarion koon syöttö ja itseä miellyttävien lajien valinta
-
-- kalalajin poisto
-- kalalajin tietojen päivittäminen
-- kalalajin lisääminen
+- akvaarion koon syöttö
+- itseä miellyttävien lajien valinta
 
 ####**Muuta huomioitavaa aiheesta:**
 Akvaarioharrastajilla on jo aktiivinen keskustelupalsta [Aqua-Web](http://aqua-web.fi/), joten tähän ohjelmaan ei rakenneta keskustelu- tai arvosteluominaisuuksia. Tämä ohjelma rakennetaan puhtaasti auttamaan uusia harrastajia sopivien kalojen löytämiseen.
