@@ -34,18 +34,17 @@ public class GraphicUI implements Runnable {
     }
 
     private void generateComponents(Container container) {
-        
-        container.add(new JLabel("Tervetuloa akvaariokalasuosittelijaan! Kirjoita akvaariosi koko alla olevaan kenttään."),BorderLayout.NORTH);
+
+        container.add(new JLabel("Tervetuloa akvaariokalasuosittelijaan! Kirjoita akvaariosi koko alla olevaan kenttään."), BorderLayout.NORTH);
         container.add(new JLabel("Huomaathan, että ohjelma ei käsittele alle 40 litran akvaarioita."));
         container.add(generateNext(), BorderLayout.SOUTH);
-      
-
 
     }
+
     private JPanel generateNext() {
         JPanel panel = new JPanel(new GridLayout(1, 3));
-        JTextArea text = new JTextArea("Akvaarion koko: ");
-        JTextField aqsize = new JTextField(); 
+        JLabel text = new JLabel("Akvaarion koko: ");
+        JTextField aqsize = new JTextField();
         JButton next = new JButton("Seuraava");
         next.addActionListener(new MessageListener(aqsize));
         panel.add(text);

@@ -23,7 +23,6 @@ public class FishReferee {
     private Aquarium a;
     private int speciesCount;
     private int currentSpeciesCount;
-    
 
     public FishReferee(ArrayList list, Aquarium a) {
         this.list = list;
@@ -34,20 +33,20 @@ public class FishReferee {
         this.a = a;
         this.currentSpeciesCount = 0;
     }
-    
+
     public void firstLists() {
         this.makeBottomFishList();
         this.makeMidFishList();
         this.makeTopFishList();
     }
-    
+
     public void setSelected(ArrayList lis) {
         this.selectedFish = lis;
     }
 
     public String update() {
-        
-        if (this.bottomlist.isEmpty() && this.midlist.isEmpty() && this.toplist.isEmpty() || this.getLengthOfSelectedFish() + 10 > this.a.getVolume() || this.speciesCount == this.currentSpeciesCount) {
+
+        if (this.bottomlist.isEmpty() && this.midlist.isEmpty() && this.toplist.isEmpty() || this.getLengthOfSelectedFish() + 5 > this.a.getVolume() || this.speciesCount == this.currentSpeciesCount) {
             return "stop";
         }
 
@@ -55,7 +54,7 @@ public class FishReferee {
         this.makeMidFishList();
         this.makeTopFishList();
         return "continue";
-       
+
     }
 
     public void makeMidFishList() {
@@ -114,7 +113,7 @@ public class FishReferee {
     public int getSpeciesCount() {
         return this.list.size();
     }
-    
+
     public ArrayList getSelectedFish() {
         return this.selectedFish;
     }
@@ -126,6 +125,7 @@ public class FishReferee {
     public ArrayList getBottomList() {
         return this.bottomlist;
     }
+
     public ArrayList getTopList() {
         return this.toplist;
     }
@@ -189,46 +189,45 @@ public class FishReferee {
                     this.updateAllSpeciesList(x);
                 }
             }
-           
+
         } catch (Exception NullPointerException) {
             System.out.println("Lista on tyhjä.");
         }
-        
+
     }
-    
+
     //tee metodi joka laskee valittujen lajien määrään akvaarion kokoon sopivaksi. 
     //Käyttäjä voi siis "valita akvaarion täyteen" tai valita vaikka 3 lajia, joiden määrää metodin pitää kasvattaa.
-    
-    public void makeFinalList() { 
-       
+    public void makeFinalList() {
+
         int stop = 0;
-        while(stop != 5) {
-            
-            
-            try {
-                
-            for (Object x:this.selectedFish) {
-                if (this.getLengthOfSelectedFish() + 5 > this.a.getVolume()) {
-                    System.out.println("Kalojen yhtpituus suurempi kuin aq -tilavuus");
-                    stop = 5;
-                    break;
-                }
-                Fish f = Fish.class.cast(x); //ei osaa tehdä kuin kerran
-                if(f.getSpecies().isSocial == true) {
-                    if (this.getLengthOfSelectedFish() + f.getSpecies().getLenght() < this.a.getVolume()) {
-                        f.setAmount((Integer)f.getAmount() + 1);
-                    }
+        int countOfSocialFish = 0;
+
+        for (Fish fish : this.selectedFish) {
+            if (fish.getSpecies().isSocial) {
+                countOfSocialFish = countOfSocialFish + 1;
+            }
+        }
+        if (countOfSocialFish == 0) {
+            stop = 5;
+        }
+
+        while (stop != 5) {
+
+            for (Fish f : this.selectedFish) {
+                if (f.getSpecies().isSocial) {
+                    f.setAmount((Integer) f.getAmount() + 1);
                 }
             }
-            
-            } catch (ClassCastException e) {
-                System.out.println("Tapahtui virhe: " + e.getMessage());
+            int sumLength = getLengthOfSelectedFish() + 5;
+            int AVolume = this.a.getVolume();
+            if (sumLength > AVolume) {
+                this.selectedFish.get(this.selectedFish.size() - 1).setAmount(this.selectedFish.get(this.selectedFish.size() - 1).getAmount() - 1);
+                stop = 5;
+                break;
             }
-            
-            break;
         }
     }
-    
 
     public void printCurrentLists() {
         try {

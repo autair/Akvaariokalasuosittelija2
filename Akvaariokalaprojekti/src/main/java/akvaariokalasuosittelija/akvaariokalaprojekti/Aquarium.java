@@ -16,14 +16,12 @@ public class Aquarium {
     private int volume;
     private float pH;
 
-
     public Aquarium(int volume) {
         this.volume = volume;
     }
 
-
     public int getVolume() {
         return this.volume;
     }
-   
+
 }
