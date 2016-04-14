@@ -45,32 +45,31 @@ public class FishReferee2Test {
         f.makeFinalList();
         fish1 = (Fish) f.getSelectedFish().get(0); //marmoritappara, 4cm
         System.out.println(fish1.getSpecies().getName());
-        assertEquals(23, fish1.getAmount());
+        assertEquals(24, fish1.getAmount());
     }
-    
+
     @Test
     public void antiSocialFishCountWorks() {
         f.updateAllSpeciesList(testspecies2);
         f.makeFinalList();
-        fish2 = (Fish) f.getSelectedFish().get(0); //taistelukala
+        fish2 = (Fish) f.getSelectedFish().get(0); //taistelukala, 7cm, ei sosiaalinen
         System.out.println(fish2.getSpecies().getName());
         assertEquals(1, fish2.getAmount());
     }
-    
+
     @Test
     public void fishCountWorksWhenSeveralSpeciesSelected() {
         f.updateAllSpeciesList(testspecies1);
         f.updateAllSpeciesList(testspecies2);
         f.makeFinalList();
+
         fish1 = (Fish) f.getSelectedFish().get(0);
         fish2 = (Fish) f.getSelectedFish().get(1);
-        System.out.println(fish1.getAmount());
-        System.out.println(fish2.getAmount()); //taistelukala puuttuu
+        System.out.println(fish1.getSpecies().getName() + " " + fish1.getAmount());
+        System.out.println(fish2.getSpecies().getName() + " " + fish2.getAmount());
         assertEquals(24, fish1.getAmount() + fish2.getAmount());
-        
-        
+
     }
-    
 
     @BeforeClass
     public static void setUpClass() {

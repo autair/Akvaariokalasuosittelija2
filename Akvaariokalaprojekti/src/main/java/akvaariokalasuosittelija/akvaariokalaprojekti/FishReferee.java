@@ -214,18 +214,22 @@ public class FishReferee {
 
         while (stop != 5) {
 
+            int sumLength = getLengthOfSelectedFish() + 5;
+            int aqVolume = this.a.getVolume();
+
             for (Fish f : this.selectedFish) {
                 if (f.getSpecies().isSocial) {
                     f.setAmount((Integer) f.getAmount() + 1);
                 }
+
+                if (sumLength > aqVolume) {
+                    f.setAmount(f.getAmount() - 1);
+                    stop = 5;
+                    break;
+                }
+
             }
-            int sumLength = getLengthOfSelectedFish() + 5;
-            int AVolume = this.a.getVolume();
-            if (sumLength > AVolume) {
-                this.selectedFish.get(this.selectedFish.size() - 1).setAmount(this.selectedFish.get(this.selectedFish.size() - 1).getAmount() - 1);
-                stop = 5;
-                break;
-            }
+
         }
     }
 
