@@ -13,4 +13,6 @@ Päivä | Tunnit | Kuvaus
 07.04.2016 | 5h | Lisää koodia
 08.04.2016 | 4,5h | Vähäinen määrä koodia ja enimmäkseen taistelua gitin kanssa. Checkstyle raporttien teko ei toimi.
 11.04.2016 | 4h | Graafisen käyttöliittymän aloitus 
-11.04.2016 | 1h | Graafisen käyttöliittymän jatkoa
+13.04.2016 | 1h | Graafisen käyttöliittymän jatkoa
+14.04.2016 | 4,5h | Graafista käyttöliittymää aloitettu alusta uudestaan, FishRefereen testausta paranneltu, taistelua Checkstyleä vastaan
+
