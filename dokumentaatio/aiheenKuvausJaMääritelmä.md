@@ -16,6 +16,4 @@ Akvaarioharrastajilla on jo aktiivinen keskustelupalsta [Aqua-Web](http://aqua-w
 ####**Määrittelyvaiheen luokkakaavio:**
 ![Luokkakaavio](/newestClassDiagram.png)
 
-####**Linkki ajankohtaiseen pit-raporttiin:**
-https://htmlpreview.github.io/?https://github.com/autair/Akvaariokalasuosittelija2/blob/master/dokumentaatio/pit/201604081420/index.html
 
