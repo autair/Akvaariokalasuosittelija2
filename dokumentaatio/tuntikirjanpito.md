@@ -15,4 +15,4 @@ Päivä | Tunnit | Kuvaus
 11.04.2016 | 4h | Graafisen käyttöliittymän aloitus 
 13.04.2016 | 1h | Graafisen käyttöliittymän jatkoa
 14.04.2016 | 4,5h | Graafista käyttöliittymää aloitettu alusta uudestaan, FishRefereen testausta paranneltu, taistelua Checkstyleä vastaan
-
+15.04.2016 | 4,5h | Koodin siistimistä, lisää testejä. Assari sai Checkstylen toimimaan! Netbeans poisti omatoimisesti kokonaan pari luokkaa(?????), piti napata vanhemmat versiot gitistä.
