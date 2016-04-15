@@ -22,6 +22,10 @@ import java.util.ArrayList;
  *
  * @author autair
  */
+
+/**
+ * Second test class for FishReferee.
+ */
 public class FishReferee2Test {
 
     public FishReferee2Test() {

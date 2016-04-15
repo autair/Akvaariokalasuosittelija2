@@ -15,6 +15,9 @@ import java.util.ArrayList;
  *
  * @author autair
  */
+/**
+ * Reads information of Species from a text file and generates first species list.
+ */
 public class Library {
 
     private File fishlist;
@@ -78,7 +81,9 @@ public class Library {
     public ArrayList getCurrentList() {
         return this.list;
     }
-
+    /**
+     * Generates an ArrayList for FishReferee; contains only species which can fit into the users aquarium.
+     */
     public ArrayList generateFirstFishlist(int aqVolume) {
         if (aqVolume <= 24) {
             System.out.println("Akvaarion tilavuus ei voi olla negatiivinen eikä alle 25 litraa");

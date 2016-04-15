@@ -32,17 +32,17 @@ public class FishTest {
     public void setUp() {
         s = new Species("seeprakala", "Danio rerio", 5, true, "mid", 70, 6.5, 7.0, 20, 28);
         a = new Aquarium(100);
-        f = new Fish(a,s,7);
+        f = new Fish(a, s, 7);
     }
-    
+
     @Test
     public void returnCorrectSpecies() {
         assertEquals("seeprakala", f.getSpecies().getName());
     }
-    
+
     @Test
     public void returnCorrectAmount() {
-        assertEquals(7,f.getAmount());
+        assertEquals(7, f.getAmount());
     }
 
 }

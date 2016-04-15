@@ -5,15 +5,12 @@
  */
 package akvaariokalasuosittelija.akvaariokalaprojekti.domain;
 
-import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Species;
-
 /**
  *
  * @author autair
  */
-
 /**
- * Luokan ilmentymä vastaa yhtä kalaa/parvea, jolla on laji ja määrä.
+ * Fish can be one or a group of fish, and it has a species and an amount.
  */
 public class Fish {
 

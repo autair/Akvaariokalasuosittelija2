@@ -16,8 +16,6 @@ import static org.junit.Assert.*;
  */
 public class AquariumTest {
 
-    
-
     Aquarium a;
 
     @Before

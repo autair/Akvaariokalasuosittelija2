@@ -11,6 +11,9 @@ import java.util.ArrayList;
  *
  * @author autair
  */
+/**
+ * Class for aquarium.
+ */
 public class Aquarium {
 
     private int volume;

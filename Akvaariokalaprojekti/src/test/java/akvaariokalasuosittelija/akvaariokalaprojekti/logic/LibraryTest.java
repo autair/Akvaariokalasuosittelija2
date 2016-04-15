@@ -17,6 +17,9 @@ import java.util.Scanner;
  *
  * @author autair
  */
+/**
+ * Test class for Library.
+ */
 public class LibraryTest {
 
     Library l;
@@ -27,7 +30,7 @@ public class LibraryTest {
     @Before
     public void setUp() {
         l = new Library();
-        File fishlist = new File("fishlist.txt");
+        fishlist = new File("fishlist.txt");
         try {
             s = new Scanner(fishlist);
         } catch (Exception e) {

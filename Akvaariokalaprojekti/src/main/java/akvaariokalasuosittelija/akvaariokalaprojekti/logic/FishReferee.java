@@ -16,6 +16,9 @@ import java.util.Iterator;
  *
  * @author autair
  */
+/**
+ * Class defines suitable species for users aquarium.
+ */
 public class FishReferee {
 
     private ArrayList<Species> list;
@@ -37,6 +40,9 @@ public class FishReferee {
         this.currentSpeciesCount = 0;
     }
 
+    /**
+     * Divides species to lists according to the floor of species
+     */
     public void firstLists() {
         this.makeBottomFishList();
         this.makeMidFishList();
@@ -87,6 +93,11 @@ public class FishReferee {
         }
     }
 
+    /**
+     * Counts the length of fish user has selected.
+     *
+     * @return i length of all selected fish
+     */
     public int getLengthOfSelectedFish() {
         int i = 0;
         if (this.selectedFish.isEmpty()) {
@@ -134,6 +145,15 @@ public class FishReferee {
         return this.list;
     }
 
+    /**
+     * Generates an ArrayList which contains only species which can be selected
+     * in the same aquarium with the species user has selected; Is based on the
+     * species requirements of temperature, pH and aquarium volume.
+     *
+     * @param s A species selected by user
+     *
+     * @return ArrayList of species
+     */
     public ArrayList updateAllSpeciesList(Species s) {
         ArrayList nList = (ArrayList) this.list.clone();
         Iterator<Species> i = nList.iterator();
@@ -183,6 +203,13 @@ public class FishReferee {
 
     }
 
+    /**
+     * Finds a species from the list of all species based on the name of
+     * species.
+     *
+     * @param name name of the species selected
+     *
+     */
     public void findSpecies(String name) {
 
         try {
@@ -199,6 +226,10 @@ public class FishReferee {
 
     }
 
+    /**
+     * Looks into the list of users selections and adds more fish if there is
+     * enough volume in the aquarium.
+     */
     public void makeFinalList() {
 
         int stop = 0;

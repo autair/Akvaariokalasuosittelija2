@@ -11,7 +11,7 @@ package akvaariokalasuosittelija.akvaariokalaprojekti.domain;
  */
 
 /**
- * Luokka kuvaa yhden lajin ominaisuuksia ja tarjoaa niiden hakemiseen tarvittavat metodit.
+ * Class contains information of one species and methods to get the info.
  */
 public class Species {
 

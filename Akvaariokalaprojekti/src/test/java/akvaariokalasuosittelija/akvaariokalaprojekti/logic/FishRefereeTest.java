@@ -7,7 +7,6 @@ package akvaariokalasuosittelija.akvaariokalaprojekti.logic;
 
 import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Aquarium;
 import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Species;
-import akvaariokalasuosittelija.akvaariokalaprojekti.logic.FishReferee;
 import java.util.ArrayList;
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -16,6 +15,9 @@ import org.junit.Test;
 /**
  *
  * @author autair
+ */
+/**
+ * First test class for FishReferee.
  */
 public class FishRefereeTest {
 
@@ -44,19 +46,19 @@ public class FishRefereeTest {
         list.add(fake5);
         f = new FishReferee(list, a);
     }
-    
+
     @Test
     public void firstListIsFormed1() {
         f.firstLists();
         assertEquals(1, f.getBottomList().size());
     }
-    
+
     @Test
     public void firstListIsFormed2() {
         f.firstLists();
         assertEquals(3, f.getMidList().size());
     }
-    
+
     @Test
     public void firstListIsFormed3() {
         f.firstLists();
@@ -86,12 +88,14 @@ public class FishRefereeTest {
         f.makeMidFishList();
         assertEquals(3, f.getMidList().size());
     }
+
     @Test
     public void speciesNotInListCannotBeFound() {
         String goldfish = "goldfish";
         f.findSpecies(goldfish);
-        assertEquals(5,f.getSpeciesList().size());
+        assertEquals(5, f.getSpeciesList().size());
     }
+
     @Test
     public void speciesInListCanBeFound() {
         String fake = "fake1";
