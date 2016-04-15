@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package akvaariokalasuosittelija.akvaariokalaprojekti;
+package akvaariokalasuosittelija.akvaariokalaprojekti.logic;
 
+import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Species;
 import java.util.Iterator;
 import java.io.File;
 import java.util.Scanner;
@@ -27,6 +28,10 @@ public class Library {
         //this.all = new ArrayList();
         this.aqSize = 0;
 
+    }
+    
+    public void setScanner(Scanner s) {
+        this.scanner = s;
     }
 
     public ArrayList listOfAllSpecies() {
@@ -54,7 +59,7 @@ public class Library {
             s.setFloor(parts[4]);
             s.setIsSocial(Boolean.parseBoolean(parts[3]));
             s.setLenght(Integer.parseInt(parts[2]));
-            s.setLatin_name(parts[1]);
+            s.setLatinName(parts[1]);
             s.setName(parts[0]);
             s.setpHmin(Double.parseDouble(parts[6]));
             s.setpHmax(Double.parseDouble(parts[7]));
@@ -73,10 +78,6 @@ public class Library {
     public ArrayList getCurrentList() {
         return this.list;
     }
-
-//    public int getSpeciesCount() {
-//        return this.list.size();
-//    }
 
     public ArrayList generateFirstFishlist(int aqVolume) {
         if (aqVolume <= 24) {
@@ -105,7 +106,7 @@ public class Library {
             s.setFloor(parts[4]);
             s.setIsSocial(Boolean.parseBoolean(parts[3]));
             s.setLenght(Integer.parseInt(parts[2]));
-            s.setLatin_name(parts[1]);
+            s.setLatinName(parts[1]);
             s.setName(parts[0]);
             s.setpHmin(Double.parseDouble(parts[6]));
             s.setpHmax(Double.parseDouble(parts[7]));
@@ -124,16 +125,7 @@ public class Library {
 
         scanner.close();
 
-//        for (Species s : this.list) {
-//            System.out.println(s.getName());
-//        }
         return this.list;
     }
-
-//    public void printAllList() {
-//        for (Species s : this.all) {
-//            System.out.println(s.getName());
-//        }
-//    }
 
 }

@@ -16,8 +16,7 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        GraphicUI ui = new GraphicUI();
-        SwingUtilities.invokeLater(ui);
+        
         
     }
     

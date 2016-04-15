@@ -41,11 +41,13 @@
                 <version>1.1.8</version>
                 <configuration>
                     <targetClasses>
-                        <param>akvaariokalasuosittelija.akvaariokalaprojekti.*</param>
+                        <param>akvaariokalasuosittelija.akvaariokalaprojekti.domain*</param>
+                        <param>akvaariokalasuosittelija.akvaariokalaprojekti.logic*</param>
                         
                     </targetClasses>
                     <targetTests>
-                        <param>akvaariokalasuosittelija.akvaariokalaprojekti.*</param>
+                        <param>akvaariokalasuosittelija.akvaariokalaprojekti.domain*</param>
+                        <param>akvaariokalasuosittelija.akvaariokalaprojekti.logic*</param>
                         
                     </targetTests>
                 </configuration>

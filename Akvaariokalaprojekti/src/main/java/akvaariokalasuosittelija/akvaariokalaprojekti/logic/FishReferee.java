@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package akvaariokalasuosittelija.akvaariokalaprojekti;
+package akvaariokalasuosittelija.akvaariokalaprojekti.logic;
 
+import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Aquarium;
+import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Fish;
+import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Species;
 import java.lang.Math;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -20,7 +23,7 @@ public class FishReferee {
     private ArrayList<Species> midlist;
     private ArrayList<Species> bottomlist;
     private ArrayList<Fish> selectedFish;
-    private Aquarium a;
+    private Aquarium aquarium;
     private int speciesCount;
     private int currentSpeciesCount;
 
@@ -30,7 +33,7 @@ public class FishReferee {
         this.midlist = new ArrayList();
         this.bottomlist = new ArrayList();
         this.selectedFish = new ArrayList();
-        this.a = a;
+        this.aquarium = a;
         this.currentSpeciesCount = 0;
     }
 
@@ -46,7 +49,7 @@ public class FishReferee {
 
     public String update() {
 
-        if (this.bottomlist.isEmpty() && this.midlist.isEmpty() && this.toplist.isEmpty() || this.getLengthOfSelectedFish() + 5 > this.a.getVolume() || this.speciesCount == this.currentSpeciesCount) {
+        if (this.bottomlist.isEmpty() && this.midlist.isEmpty() && this.toplist.isEmpty() || this.getLengthOfSelectedFish() + 5 > this.aquarium.getVolume() || this.speciesCount == this.currentSpeciesCount) {
             return "stop";
         }
 
@@ -86,24 +89,17 @@ public class FishReferee {
 
     public int getLengthOfSelectedFish() {
         int i = 0;
-        try {
-            for (Fish x : this.selectedFish) {
-                i = i + x.getLengthOfAll();
-            }
-        } catch (Exception NullPointerException) {
-            System.out.println("Lista on tyhjä.");
+        if (this.selectedFish.isEmpty()) {
+            return i;
+        }
+        for (Fish x : this.selectedFish) {
+            i = i + x.getLengthOfAll();
         }
         return i;
     }
 
-    public void printMidList() {
-        for (Species s : this.midlist) {
-            System.out.println(s.getName());
-        }
-    }
-
     public void setSpeciesCount() {
-        if (this.a.getVolume() < 100) {
+        if (this.aquarium.getVolume() < 100) {
             this.speciesCount = 3;
         } else {
             this.speciesCount = 6;
@@ -112,6 +108,10 @@ public class FishReferee {
 
     public int getSpeciesCount() {
         return this.list.size();
+    }
+
+    public ArrayList getSpeciesList() {
+        return this.list;
     }
 
     public ArrayList getSelectedFish() {
@@ -135,15 +135,16 @@ public class FishReferee {
     }
 
     public ArrayList updateAllSpeciesList(Species s) {
-        Iterator<Species> i = this.list.iterator();
+        ArrayList nList = (ArrayList) this.list.clone();
+        Iterator<Species> i = nList.iterator();
 
         while (i.hasNext()) {
             Species x = i.next();
 
-            if (x.isSocial == true && this.getLengthOfSelectedFish() + x.getLenght() * 7 > this.a.getVolume()) {
+            if (x.isSocial == true && this.getLengthOfSelectedFish() + x.getLenght() * 7 > this.aquarium.getVolume()) {
                 i.remove();
             }
-            if (x.isSocial == false && this.getLengthOfSelectedFish() + x.getLenght() > this.a.getVolume()) {
+            if (x.isSocial == false && this.getLengthOfSelectedFish() + x.getLenght() > this.aquarium.getVolume()) {
                 i.remove();
             }
 
@@ -165,19 +166,20 @@ public class FishReferee {
 
         }
         if (s.isSocial == true) {
-            Fish fish = new Fish(a, s, 7);
+            Fish fish = new Fish(this.aquarium, s, 7);
             this.selectedFish.add(fish);
             this.currentSpeciesCount = this.currentSpeciesCount + 1;
         }
         if (s.isSocial == false) {
-            Fish fish = new Fish(a, s, 1);
+            Fish fish = new Fish(this.aquarium, s, 1);
             this.selectedFish.add(fish);
             this.currentSpeciesCount = this.currentSpeciesCount + 1;
         }
 
-        this.list.remove(s);
+        nList.remove(s);
 
-        return this.list;
+        this.list = nList;
+        return nList;
 
     }
 
@@ -187,17 +189,16 @@ public class FishReferee {
             for (Species x : this.list) {
                 if (x.getName().equals(name)) {
                     this.updateAllSpeciesList(x);
+                    break;
                 }
             }
 
-        } catch (Exception NullPointerException) {
+        } catch (NullPointerException e) {
             System.out.println("Lista on tyhjä.");
         }
 
     }
 
-    //tee metodi joka laskee valittujen lajien määrään akvaarion kokoon sopivaksi. 
-    //Käyttäjä voi siis "valita akvaarion täyteen" tai valita vaikka 3 lajia, joiden määrää metodin pitää kasvattaa.
     public void makeFinalList() {
 
         int stop = 0;
@@ -215,7 +216,7 @@ public class FishReferee {
         while (stop != 5) {
 
             int sumLength = getLengthOfSelectedFish() + 5;
-            int aqVolume = this.a.getVolume();
+            int aqVolume = this.aquarium.getVolume();
 
             for (Fish f : this.selectedFish) {
                 if (f.getSpecies().isSocial) {
@@ -232,36 +233,4 @@ public class FishReferee {
 
         }
     }
-
-    public void printCurrentLists() {
-        try {
-            System.out.println("Pohjaveden lajit: ");
-            for (Species s : this.bottomlist) {
-                System.out.println(s.getName());
-            }
-
-        } catch (Exception NullPointerException) {
-            System.out.println("Lista on tyhjä.");
-        }
-        try {
-            System.out.println("Keskiveden lajit: ");
-            for (Species s : this.midlist) {
-                System.out.println(s.getName());
-            }
-
-        } catch (Exception NullPointerException) {
-            System.out.println("Lista on tyhjä.");
-        }
-        try {
-            System.out.println("Pintaveden lajit: ");
-            for (Species s : this.toplist) {
-                System.out.println(s.getName());
-            }
-
-        } catch (Exception NullPointerException) {
-            System.out.println("Lista on tyhjä.");
-        }
-
-    }
-
 }

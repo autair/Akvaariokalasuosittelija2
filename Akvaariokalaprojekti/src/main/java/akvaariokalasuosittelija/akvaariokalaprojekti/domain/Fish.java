@@ -3,11 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package akvaariokalasuosittelija.akvaariokalaprojekti;
+package akvaariokalasuosittelija.akvaariokalaprojekti.domain;
+
+import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Species;
 
 /**
  *
  * @author autair
+ */
+
+/**
+ * Luokan ilmentymä vastaa yhtä kalaa/parvea, jolla on laji ja määrä.
  */
 public class Fish {
 
@@ -23,7 +29,7 @@ public class Fish {
         this.lengthOfAll = this.s.getLenght() * this.amount;
     }
 
-    public Aquarium a() {
+    public Aquarium getAquarium() {
         return this.aquarium;
     }
 

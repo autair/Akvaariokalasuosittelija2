@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package akvaariokalasuosittelija.akvaariokalaprojekti.GUI;
+package akvaariokalasuosittelija.akvaariokalaprojekti.gui;
 
 import javax.swing.JFrame;
 
@@ -13,10 +13,10 @@ import javax.swing.JFrame;
  *
  * @author autair
  */
-public class Kayttis extends javax.swing.JFrame {
+public class GUI extends javax.swing.JFrame {
     private int aqsize;
 
-    public Kayttis() {
+    public GUI() {
         initComponents();
     }
 
@@ -128,20 +128,20 @@ public class Kayttis extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Kayttis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Kayttis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Kayttis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Kayttis.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Kayttis().setVisible(true);
+                new GUI().setVisible(true);
             }
         });
     }

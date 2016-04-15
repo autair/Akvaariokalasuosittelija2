@@ -3,8 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package akvaariokalasuosittelija.akvaariokalaprojekti;
+package akvaariokalasuosittelija.akvaariokalaprojekti.logic;
 
+import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Aquarium;
+import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Species;
+import akvaariokalasuosittelija.akvaariokalaprojekti.logic.FishReferee;
 import java.util.ArrayList;
 import static org.junit.Assert.*;
 import org.junit.Before;
@@ -87,13 +90,13 @@ public class FishRefereeTest {
     public void speciesNotInListCannotBeFound() {
         String goldfish = "goldfish";
         f.findSpecies(goldfish);
-        assertEquals(5,list.size() );
+        assertEquals(5,f.getSpeciesList().size());
     }
     @Test
     public void speciesInListCanBeFound() {
-        String fake1 = "fake1";
-        f.findSpecies(fake1);
-        assertEquals(2, list.size());
+        String fake = "fake1";
+        f.findSpecies(fake);
+        assertEquals(2, f.getSpeciesList().size());
     }
 
     // TODO add test methods here.

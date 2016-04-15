@@ -3,16 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package akvaariokalasuosittelija.akvaariokalaprojekti;
+package akvaariokalasuosittelija.akvaariokalaprojekti.domain;
 
 /**
  *
  * @author autair
  */
+
+/**
+ * Luokka kuvaa yhden lajin ominaisuuksia ja tarjoaa niiden hakemiseen tarvittavat metodit.
+ */
 public class Species {
 
     private String name;
-    private String latin_name;
+    private String latinName;
     private int lenght;
     public boolean isSocial;
     private String floor;
@@ -22,9 +26,9 @@ public class Species {
     private int tempMin;
     private int tempMax;
 
-    public Species(String name, String latin_name, int lenght, boolean isSocial, String floor, int aqMinSize, double pHmin, double pHmax, int tempMin, int tempMax) {
+    public Species(String name, String latinName, int lenght, boolean isSocial, String floor, int aqMinSize, double pHmin, double pHmax, int tempMin, int tempMax) {
         this.name = name;
-        this.latin_name = latin_name;
+        this.latinName = latinName;
         this.lenght = lenght;
         this.isSocial = isSocial;
         this.floor = floor;
@@ -43,8 +47,8 @@ public class Species {
         this.name = name;
     }
 
-    public void setLatin_name(String latin_name) {
-        this.latin_name = latin_name;
+    public void setLatinName(String latinName) {
+        this.latinName = latinName;
     }
 
     public void setLenght(int lenght) {
@@ -84,7 +88,7 @@ public class Species {
     }
 
     public String getLatinName() {
-        return this.latin_name;
+        return this.latinName;
     }
 
     public int getLenght() {

@@ -3,8 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package akvaariokalasuosittelija.akvaariokalaprojekti;
+package akvaariokalasuosittelija.akvaariokalaprojekti.logic;
 
+import akvaariokalasuosittelija.akvaariokalaprojekti.logic.Library;
+import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Aquarium;
+import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Fish;
+import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Species;
+import akvaariokalasuosittelija.akvaariokalaprojekti.logic.FishReferee;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
