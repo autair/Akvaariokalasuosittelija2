@@ -3,24 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package akvaariokalasuosittelija.akvaariokalaprojekti.gui;
 
 import javax.swing.JFrame;
 import akvaariokalasuosittelija.akvaariokalaprojekti.domain.*;
 import akvaariokalasuosittelija.akvaariokalaprojekti.logic.*;
 
-
 /**
  *
  * @author autair
  */
 public class GUI extends javax.swing.JFrame {
+
     private int aqsize;
 
     public GUI() {
         initComponents();
-      
+
     }
 
     @SuppressWarnings("unchecked")
@@ -33,6 +32,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,6 +51,8 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel3.setText("jLabel3");
 
+        jLabel4.setText("jLabel4");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -59,13 +61,14 @@ public class GUI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(93, 93, 93)
                         .addComponent(jButton1))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -82,7 +85,9 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 460, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 442, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
@@ -96,33 +101,33 @@ public class GUI extends javax.swing.JFrame {
 
         int stop1 = 0;
         int stop2 = 0;
-        while(true) {
-        try {
-            this.aqsize = (Integer.parseInt(this.jTextField2.getText())); 
-            
-        } catch (NumberFormatException e) { //käyttäjä syöttää muuta kuin numeroita
-            jLabel3.setText("Akvaarion koko ilmoitettava numeroina, ei tekstinä. ");
-            this.jTextField2.setText(""); //miksi tämä siirtyy samalla kun tyhjennetään?
-            
-            
-        }
-        
-         break;      
-        
+        while (true) {
+            try {
+                this.aqsize = (Integer.parseInt(this.jTextField2.getText()));
+
+            } catch (NumberFormatException e) { //käyttäjä syöttää muuta kuin numeroita
+                jLabel3.setText("Akvaarion koko ilmoitettava numeroina, ei tekstinä. ");
+                this.jTextField2.setText(""); //miksi tämä siirtyy samalla kun tyhjennetään?
+                break;
+
+            }
+
+            break;
+
         }
         //miten saadaan pyörimään whilessä kunnes käyttäjä syöttää numeroita?
-        
+
         jTextField1.setText("luodaan akvaariokalasuosittelija");
         Aquarium a = new Aquarium(this.aqsize);
         Library l = new Library();
         FishReferee f = new FishReferee(l.generateFirstFishlist(this.aqsize), a);
-        
-       
-        
-        
-        
+        f.setSpeciesCount();
+        f.update();
+        //jLabel4.setText("moi!\nja hei"); //miksei rivinvaihto toimi?
+        jLabel4.setText(f.getAvailableSpecies()); //alle kyllä tulostuu ihan oikein?
+
        // new JFrame("new window").setVisible(true);
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
@@ -162,6 +167,7 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables

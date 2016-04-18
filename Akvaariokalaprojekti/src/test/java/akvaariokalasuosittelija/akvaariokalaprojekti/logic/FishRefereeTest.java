@@ -48,6 +48,36 @@ public class FishRefereeTest {
     }
 
     @Test
+    public void listCanBeSetted() {
+        ArrayList randomList = new ArrayList();
+        f.setSelected(randomList);
+        assertEquals(0, randomList.size());
+    }
+
+    @Test
+    public void ifListsAreEmptyUptadeReturnsStop() {
+        assertEquals(f.update(), "stop");
+    }
+
+    @Test
+    public void ifAquariumIsFullUpdateReturnsStop() {
+        f.updateAllSpeciesList(fake1);
+        f.makeFinalList();
+        assertEquals(f.update(), "stop");
+    }
+
+    @Test
+    public void ifMaximumSpeciesCountIsSelectedUpdateReturnsStop() {
+        f.setSpeciesCount();
+        f.update();
+        f.updateAllSpeciesList(fake4);
+        f.updateAllSpeciesList(fake1);
+        f.updateAllSpeciesList(fake3);
+        assertEquals(f.update(), "stop");
+
+    }
+
+    @Test
     public void firstListIsFormed1() {
         f.update();
         assertEquals(1, f.getBottomList().size());

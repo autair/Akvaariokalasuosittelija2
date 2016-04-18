@@ -40,28 +40,27 @@ public class FishReferee {
         this.currentSpeciesCount = 0;
     }
 
-    
     public void setSelected(ArrayList lis) {
         this.selectedFish = lis;
     }
-    
+
     /**
      * Updates the species lists.
-     * 
+     *
      * @return String to stop or continue
      */
     public String update() {
         this.makeLists();
-         if (this.bottomlist.isEmpty() && this.midlist.isEmpty() && this.toplist.isEmpty() || this.getLengthOfSelectedFish() + 5 > this.aquarium.getVolume() || this.speciesCount == this.currentSpeciesCount) {
+        if (this.bottomlist.isEmpty() && this.midlist.isEmpty() && this.toplist.isEmpty() || this.getLengthOfSelectedFish() + 5 > this.aquarium.getVolume() || this.speciesCount == this.currentSpeciesCount) {
             return "stop";
         }
-         return "continue";
+        return "continue";
 
     }
-    
+
     /**
      * Divides species to lists according to the floor of species.
-     * 
+     *
      */
     public void makeLists() {
         this.midlist = new ArrayList();
@@ -78,7 +77,17 @@ public class FishReferee {
                 this.bottomlist.add(x);
             }
         }
-        
+
+    }
+
+    public String getAvailableSpecies() {
+        String species = "";
+        for (Species x : this.list) {
+            species = species + System.lineSeparator() + x.getName();
+        }
+        System.out.print(species);
+        return species;
+
     }
 
     /**

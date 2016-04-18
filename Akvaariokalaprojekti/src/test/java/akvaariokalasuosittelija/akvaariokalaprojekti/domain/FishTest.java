@@ -5,13 +5,7 @@
  */
 package akvaariokalasuosittelija.akvaariokalaprojekti.domain;
 
-import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Aquarium;
-import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Fish;
-import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Species;
-import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
 

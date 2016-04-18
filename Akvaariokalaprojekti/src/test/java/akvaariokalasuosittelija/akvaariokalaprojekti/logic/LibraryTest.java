@@ -6,7 +6,6 @@
 package akvaariokalasuosittelija.akvaariokalaprojekti.logic;
 
 import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Species;
-import akvaariokalasuosittelija.akvaariokalaprojekti.logic.Library;
 import java.io.File;
 import org.junit.Before;
 import org.junit.Test;
