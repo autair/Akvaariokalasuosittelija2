@@ -40,57 +40,45 @@ public class FishReferee {
         this.currentSpeciesCount = 0;
     }
 
-    /**
-     * Divides species to lists according to the floor of species
-     */
-    public void firstLists() {
-        this.makeBottomFishList();
-        this.makeMidFishList();
-        this.makeTopFishList();
-    }
-
+    
     public void setSelected(ArrayList lis) {
         this.selectedFish = lis;
     }
-
+    
+    /**
+     * Updates the species lists.
+     * 
+     * @return String to stop or continue
+     */
     public String update() {
-
-        if (this.bottomlist.isEmpty() && this.midlist.isEmpty() && this.toplist.isEmpty() || this.getLengthOfSelectedFish() + 5 > this.aquarium.getVolume() || this.speciesCount == this.currentSpeciesCount) {
+        this.makeLists();
+         if (this.bottomlist.isEmpty() && this.midlist.isEmpty() && this.toplist.isEmpty() || this.getLengthOfSelectedFish() + 5 > this.aquarium.getVolume() || this.speciesCount == this.currentSpeciesCount) {
             return "stop";
         }
-
-        this.makeBottomFishList();
-        this.makeMidFishList();
-        this.makeTopFishList();
-        return "continue";
+         return "continue";
 
     }
-
-    public void makeMidFishList() {
-        this.midlist = new ArrayList<>();
+    
+    /**
+     * Divides species to lists according to the floor of species.
+     * 
+     */
+    public void makeLists() {
+        this.midlist = new ArrayList();
+        this.bottomlist = new ArrayList();
+        this.toplist = new ArrayList();
         for (Species x : this.list) {
             if (x.getFloor().equals("mid")) {
                 this.midlist.add(x);
             }
-        }
-    }
-
-    public void makeTopFishList() {
-        this.toplist = new ArrayList<>();
-        for (Species x : this.list) {
             if (x.getFloor().equals("top")) {
                 this.toplist.add(x);
             }
-        }
-    }
-
-    public void makeBottomFishList() {
-        this.bottomlist = new ArrayList<>();
-        for (Species x : this.list) {
             if (x.getFloor().equals("bottom")) {
                 this.bottomlist.add(x);
             }
         }
+        
     }
 
     /**

@@ -49,19 +49,19 @@ public class FishRefereeTest {
 
     @Test
     public void firstListIsFormed1() {
-        f.firstLists();
+        f.update();
         assertEquals(1, f.getBottomList().size());
     }
 
     @Test
     public void firstListIsFormed2() {
-        f.firstLists();
+        f.update();
         assertEquals(3, f.getMidList().size());
     }
 
     @Test
     public void firstListIsFormed3() {
-        f.firstLists();
+        f.update();
         assertEquals(1, f.getTopList().size());
     }
 
@@ -73,19 +73,19 @@ public class FishRefereeTest {
 
     @Test
     public void topListIsFormedCorrectly() {
-        f.makeTopFishList();
+        f.update();
         assertEquals(1, f.getTopList().size());
     }
 
     @Test
     public void bottomListIsFormedCorrectly() {
-        f.makeBottomFishList();
+        f.update();
         assertEquals(1, f.getBottomList().size());
     }
 
     @Test
     public void midListIsFormedCorrectly() {
-        f.makeMidFishList();
+        f.update();
         assertEquals(3, f.getMidList().size());
     }
 

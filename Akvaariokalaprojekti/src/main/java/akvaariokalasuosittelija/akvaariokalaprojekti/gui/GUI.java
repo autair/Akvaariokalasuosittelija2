@@ -7,6 +7,8 @@
 package akvaariokalasuosittelija.akvaariokalaprojekti.gui;
 
 import javax.swing.JFrame;
+import akvaariokalasuosittelija.akvaariokalaprojekti.domain.*;
+import akvaariokalasuosittelija.akvaariokalaprojekti.logic.*;
 
 
 /**
@@ -18,6 +20,7 @@ public class GUI extends javax.swing.JFrame {
 
     public GUI() {
         initComponents();
+      
     }
 
     @SuppressWarnings("unchecked")
@@ -93,20 +96,28 @@ public class GUI extends javax.swing.JFrame {
 
         int stop1 = 0;
         int stop2 = 0;
-        while(stop1 != 5) {
+        while(true) {
         try {
             this.aqsize = (Integer.parseInt(this.jTextField2.getText())); 
-            stop1 = 5;
+            
         } catch (NumberFormatException e) { //käyttäjä syöttää muuta kuin numeroita
             jLabel3.setText("Akvaarion koko ilmoitettava numeroina, ei tekstinä. ");
-            this.jTextField2.setText(null); //miksi tämä siirtyy samalla kun tyhjennetään?
-            stop1 = 0;
+            this.jTextField2.setText(""); //miksi tämä siirtyy samalla kun tyhjennetään?
+            
+            
         }
         
-        break;
+         break;      
+        
         }
+        //miten saadaan pyörimään whilessä kunnes käyttäjä syöttää numeroita?
         
         jTextField1.setText("luodaan akvaariokalasuosittelija");
+        Aquarium a = new Aquarium(this.aqsize);
+        Library l = new Library();
+        FishReferee f = new FishReferee(l.generateFirstFishlist(this.aqsize), a);
+        
+       
         
         
         
