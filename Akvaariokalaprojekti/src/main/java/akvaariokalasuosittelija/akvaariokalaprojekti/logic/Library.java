@@ -16,73 +16,33 @@ import java.util.ArrayList;
  * @author autair
  */
 /**
- * Reads information of Species from a text file and generates first species list.
+ * Reads information of Species from a text file and generates first species
+ * list.
  */
 public class Library {
 
     private File fishlist;
     private Scanner scanner;
     private ArrayList<Species> list;
-    private ArrayList<Species> all;
     private int aqSize;
 
     public Library() {
         this.list = new ArrayList();
-        //this.all = new ArrayList();
         this.aqSize = 0;
 
     }
-    
+
     public void setScanner(Scanner s) {
         this.scanner = s;
-    }
-
-    public ArrayList listOfAllSpecies() {
-        this.all = new ArrayList<Species>();
-
-        File fishlist = new File("fishlist.txt");
-        Scanner scanner = null;
-        try {
-            scanner = new Scanner(fishlist);
-        } catch (Exception e) {
-            System.out.println("Kirjaston lukeminen epäonnistui. Virhe: " + e.getMessage());
-            return null;
-        }
-
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
-
-            if (line.isEmpty()) {
-                continue;
-            }
-
-            String[] parts = line.split(";");
-            Species s = new Species();
-            s.setAqMinSize(Integer.parseInt(parts[5]));
-            s.setFloor(parts[4]);
-            s.setIsSocial(Boolean.parseBoolean(parts[3]));
-            s.setLenght(Integer.parseInt(parts[2]));
-            s.setLatinName(parts[1]);
-            s.setName(parts[0]);
-            s.setpHmin(Double.parseDouble(parts[6]));
-            s.setpHmax(Double.parseDouble(parts[7]));
-            s.setTempMin(Integer.parseInt(parts[8]));
-            s.setTempMax(Integer.parseInt(parts[9]));
-
-            this.all.add(s);
-
-        }
-
-        scanner.close();
-        return this.all;
-
     }
 
     public ArrayList getCurrentList() {
         return this.list;
     }
+
     /**
-     * Generates an ArrayList for FishReferee; contains only species which can fit into the users aquarium.
+     * Generates an ArrayList for FishReferee; contains only species which can
+     * fit into the users aquarium.
      */
     public ArrayList generateFirstFishlist(int aqVolume) {
         if (aqVolume <= 24) {

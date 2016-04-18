@@ -21,7 +21,6 @@ import static org.junit.Assert.*;
  *
  * @author autair
  */
-
 /**
  * Second test class for FishReferee.
  */
@@ -44,7 +43,7 @@ public class FishReferee2Test {
         l = new Library();
         f = new FishReferee(l.generateFirstFishlist(a.getVolume()), a);
         testspecies1 = (Species) f.getAllList().get(0); //marmoritapparakala, 4cm, social
-        testspecies2 = (Species) f.getAllList().get(1); //taistelukala, not social
+        testspecies2 = (Species) f.getAllList().get(1); //taistelukala, 5 cm, not social
     }
 
     @Test

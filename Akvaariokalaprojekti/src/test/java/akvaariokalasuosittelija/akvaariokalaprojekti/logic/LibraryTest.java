@@ -107,10 +107,4 @@ public class LibraryTest {
         assertEquals(8, l.getCurrentList().size());
     }
 
-    @Test
-    public void allSpeciesAddedIfAquariumIsaPool() {
-        l.generateFirstFishlist(10000);
-        assertEquals(l.listOfAllSpecies().size(), l.getCurrentList().size());
-    }
-
 }
