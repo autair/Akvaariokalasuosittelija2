@@ -16,4 +16,5 @@ Akvaarioharrastajilla on jo aktiivinen keskustelupalsta [Aqua-Web](http://aqua-w
 ####**Määrittelyvaiheen luokkakaavio:**
 ![Luokkakaavio](/newestClassDiagram.png)
 
-
+####**Sekvenssikaavio tapauksesta, jossa käyttäjä syöttää akvaarion koon:**
+![sekvenssikaavio1](/sekvenssikaavio1.png)
