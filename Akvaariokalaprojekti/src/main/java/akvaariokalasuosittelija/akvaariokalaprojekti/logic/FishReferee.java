@@ -222,7 +222,7 @@ public class FishReferee {
      * @param name name of the species selected
      *
      */
-    public void findSpecies(String name) {
+    public boolean findSpecies(String name) {
 
         try {
             for (Species x : this.list) {
@@ -234,7 +234,9 @@ public class FishReferee {
 
         } catch (NullPointerException e) {
             System.out.println("Lista on tyhjä.");
+            return false;
         }
+        return true;
 
     }
 
