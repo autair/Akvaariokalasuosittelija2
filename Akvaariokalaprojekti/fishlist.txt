@@ -13,8 +13,3 @@ partamonni;Ancistrus cirrhosus;15;false;bottom;128;5.8;7.8;23;27;
 kaapiomonninen;Corydoras pygmaeus;3;true;bottom;45;6.0;7.0;24;27;
 pandamonninen;Corydoras panda;6;true;bottom;73;6.0;7.0;22;25;
 nuolimonninen;Corydoras hastatus;3;true;bottom;45;6.0;7.0;23;27;
-
-
-
-
-

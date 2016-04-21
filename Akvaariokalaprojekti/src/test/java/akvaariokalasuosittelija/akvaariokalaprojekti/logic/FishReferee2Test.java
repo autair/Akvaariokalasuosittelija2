@@ -40,7 +40,7 @@ public class FishReferee2Test {
     @Before
     public void setUp() {
         a = new Aquarium(100);
-        l = new Library();
+        l = new Library("fishlist.txt");
         f = new FishReferee(l.generateFirstFishlist(a.getVolume()), a);
         testspecies1 = (Species) f.getAllList().get(0); //marmoritapparakala, 4cm, social
         testspecies2 = (Species) f.getAllList().get(1); //taistelukala, 5 cm, not social

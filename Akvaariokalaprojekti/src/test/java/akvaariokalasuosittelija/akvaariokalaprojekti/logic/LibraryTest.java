@@ -22,51 +22,90 @@ import java.util.Scanner;
 public class LibraryTest {
 
     Library l;
-    File fishlist;
-    Scanner s;
     Species species;
 
     @Before
     public void setUp() {
-        l = new Library();
-        fishlist = new File("fishlist.txt");
-        try {
-            s = new Scanner(fishlist);
-        } catch (Exception e) {
-            s = null;
-        }
-        l.setScanner(s);
-        String line = s.nextLine();
-        String[] parts = line.split(";");
-        species = new Species();
-        species.setAqMinSize(Integer.parseInt(parts[5]));
-        species.setFloor(parts[4]);
-        species.setIsSocial(Boolean.parseBoolean(parts[3]));
-        species.setLenght(Integer.parseInt(parts[2]));
-        species.setLatinName(parts[1]);
-        species.setName(parts[0]);
-        species.setpHmin(Double.parseDouble(parts[6]));
-        species.setpHmax(Double.parseDouble(parts[7]));
-        species.setTempMin(Integer.parseInt(parts[8]));
-        species.setTempMax(Integer.parseInt(parts[9]));
-
+        l = new Library("fishlist.txt");
     }
 
     @Test
     public void speciesIsGeneratedTest1() {
+        l.generateFirstFishlist(100);
+        species = l.getCurrentList().get(0);
         assertEquals(species.isSocial, true);
 
     }
 
     @Test
     public void speciesIsGeneratedTest2() {
+        l.generateFirstFishlist(100);
+        species = l.getCurrentList().get(0);
         assertEquals(species.getName(), "marmoritapparakala");
 
     }
 
     @Test
     public void speciesIsGeneratedTest3() {
+        l.generateFirstFishlist(100);
+        species = l.getCurrentList().get(0);
         assertEquals(4, species.getLenght());
+
+    }
+
+    @Test
+    public void speciesIsGeneratedTest4() {
+        l.generateFirstFishlist(100);
+        species = l.getCurrentList().get(0);
+        assertEquals("Carnegiella strigata", species.getLatinName());
+
+    }
+
+    @Test
+    public void speciesIsGeneratedTest5() {
+        l.generateFirstFishlist(100);
+        species = l.getCurrentList().get(0);
+        assertEquals("top", species.getFloor());
+
+    }
+
+    @Test
+    public void speciesIsGeneratedTest6() {
+        l.generateFirstFishlist(100);
+        species = l.getCurrentList().get(0);
+        assertEquals(63, species.getaqMinSize());
+
+    }
+
+    @Test
+    public void speciesIsGeneratedTest7() {
+        l.generateFirstFishlist(100);
+        species = l.getCurrentList().get(0);
+        assertEquals(5, 5, species.getMinpH());
+
+    }
+
+    @Test
+    public void speciesIsGeneratedTest8() {
+        l.generateFirstFishlist(100);
+        species = l.getCurrentList().get(0);
+        assertEquals(7, 0, species.getMaxpH());
+
+    }
+
+    @Test
+    public void speciesIsGeneratedTest9() {
+        l.generateFirstFishlist(100);
+        species = l.getCurrentList().get(0);
+        assertEquals(22, species.getTempMin());
+
+    }
+
+    @Test
+    public void speciesIsGeneratedTest10() {
+        l.generateFirstFishlist(100);
+        species = l.getCurrentList().get(0);
+        assertEquals(28, species.getTempMax());
 
     }
 
