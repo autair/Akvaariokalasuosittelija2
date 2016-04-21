@@ -221,6 +221,7 @@ public class FishReferee {
      *
      * @param name name of the species selected
      *
+     * @return boolean if species can be found
      */
     public boolean findSpecies(String name) {
 
