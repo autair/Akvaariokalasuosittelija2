@@ -18,4 +18,6 @@ Päivä | Tunnit | Kuvaus
 15.04.2016 | 4,5h | Koodin siistimistä, lisää testejä. Assari sai Checkstylen toimimaan! Netbeans poisti omatoimisesti kokonaan pari luokkaa(?????), piti napata vanhemmat versiot gitistä.
 18.04.2016 | 2h | Koodin siistimistä, GUI jatkoa
 19.04.2016 | 1h | Koodikatselmointi 2 
+20.04.2016 | 2h | Sekvenssikaaviot, pientä koodausta
+21.04.2016 | 4h | Library luokan pienentäminen, testejä, GUI
 
