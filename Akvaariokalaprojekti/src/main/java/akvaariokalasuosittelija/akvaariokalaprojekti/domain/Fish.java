@@ -19,6 +19,13 @@ public class Fish {
     private Species s;
     private int lengthOfAll;
 
+    /**
+     * Constructor.
+     *
+     * @param a users aquarium
+     * @param s the species of the fish
+     * @param amount the amount of the fish
+     */
     public Fish(Aquarium a, Species s, int amount) {
         this.s = s;
         this.aquarium = a;

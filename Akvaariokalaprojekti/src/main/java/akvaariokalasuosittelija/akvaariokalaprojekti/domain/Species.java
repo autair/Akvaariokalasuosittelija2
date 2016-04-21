@@ -9,7 +9,6 @@ package akvaariokalasuosittelija.akvaariokalaprojekti.domain;
  *
  * @author autair
  */
-
 /**
  * Class contains information of one species and methods to get the info.
  */
@@ -26,6 +25,20 @@ public class Species {
     private int tempMin;
     private int tempMax;
 
+    /**
+     * Constructor.
+     *
+     * @param name the Finnish name of the species
+     * @param latinName the Latin name of the species
+     * @param lenght the length of the species
+     * @param isSocial boolean if the species is social or not
+     * @param floor the floor of the species; can be top, mid or bottom
+     * @param aqMinSize the minimum size of aquarium the species needs
+     * @param pHmin the minimum pH of the aquarium the species can live in
+     * @param pHmax the maximum pH of the aquarium the species can live in
+     * @param tempMin the minimum temperature of water the species needs
+     * @param tempMax the maximum temperature of water the species can stand
+     */
     public Species(String name, String latinName, int lenght, boolean isSocial, String floor, int aqMinSize, double pHmin, double pHmax, int tempMin, int tempMax) {
         this.name = name;
         this.latinName = latinName;
@@ -40,6 +53,9 @@ public class Species {
 
     }
 
+    /**
+     * Empty Constructor.
+     */
     public Species() {
     }
 
@@ -67,10 +83,20 @@ public class Species {
         this.aqMinSize = aqMinSize;
     }
 
+    /**
+     * A method for setting the minimum pH of the species.
+     *
+     * @param pHmin the minimum pH
+     */
     public void setpHmin(double pHmin) {
         this.pHmin = pHmin;
     }
 
+    /**
+     * A method for setting the maximum pH of the species.
+     *
+     * @param pHmax the maximum pH
+     */
     public void setpHmax(double pHmax) {
         this.pHmax = pHmax;
     }
@@ -103,6 +129,11 @@ public class Species {
         return this.floor;
     }
 
+    /**
+     * A method for getting the minimum volume of aquarium the species requires.
+     *
+     * @return the minimum volume
+     */
     public int getaqMinSize() {
         return this.aqMinSize;
     }

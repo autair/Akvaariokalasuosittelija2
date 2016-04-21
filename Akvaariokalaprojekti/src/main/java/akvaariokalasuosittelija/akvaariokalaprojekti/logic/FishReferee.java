@@ -30,6 +30,12 @@ public class FishReferee {
     private int speciesCount;
     private int currentSpeciesCount;
 
+    /**
+     * Constructor.
+     *
+     * @param list the list of suitable species
+     * @param a the aquarium species are refereed to
+     */
     public FishReferee(ArrayList list, Aquarium a) {
         this.list = list;
         this.toplist = new ArrayList();
@@ -80,6 +86,11 @@ public class FishReferee {
 
     }
 
+    /**
+     * A method for getting the available species in text format.
+     *
+     * @return String of species, one species per line.
+     */
     public String getAvailableSpecies() {
         String species = "";
         for (Species x : this.list) {
@@ -106,6 +117,10 @@ public class FishReferee {
         return i;
     }
 
+    /**
+     * A method for setting the maximum species count.
+     *
+     */
     public void setSpeciesCount() {
         if (this.aquarium.getVolume() < 100) {
             this.speciesCount = 3;

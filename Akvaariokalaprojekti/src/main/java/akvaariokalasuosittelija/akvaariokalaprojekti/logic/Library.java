@@ -27,10 +27,15 @@ public class Library {
     private int aqSize;
     private File dataFile;
 
-    public Library(String location) {
+    /**
+     * Constructor.
+     *
+     * @param fishlist name of the text file
+     */
+    public Library(String fishlist) {
         this.list = new ArrayList();
         this.aqSize = 0;
-        dataFile = new File(location);
+        dataFile = new File(fishlist);
         // fishlist.txt
     }
 
@@ -39,8 +44,12 @@ public class Library {
     }
 
     /**
-     * Generates an ArrayList for FishReferee; contains only species which can
-     * fit into the users aquarium.
+     * Generates the first species list based on the size of the aquarium.
+     *
+     *
+     * @return ArrayList of suitable species, null if there are not suitable
+     * species
+     * @param aqVolume the volume of the aquarium
      */
     public ArrayList generateFirstFishlist(int aqVolume) {
         if (aqVolume <= 24) {
