@@ -20,4 +20,6 @@ Päivä | Tunnit | Kuvaus
 19.04.2016 | 1h | Koodikatselmointi 2 
 20.04.2016 | 2h | Sekvenssikaaviot, pientä koodausta
 21.04.2016 | 4h | Library luokan pienentäminen, testejä, GUI
+25.04.2016 | 7h | FishReferee luokan siistimistä + Printer -luokan luonti, GUI valmiiksi
+
 
