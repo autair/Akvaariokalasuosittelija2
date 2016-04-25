@@ -8,6 +8,7 @@ package akvaariokalasuosittelija.akvaariokalaprojekti.logic;
 import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Aquarium;
 import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Fish;
 import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Species;
+import akvaariokalasuosittelija.akvaariokalaprojekti.util.Printer;
 import java.lang.Math;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -48,6 +49,12 @@ public class FishReferee {
 
     public void setSelected(ArrayList lis) {
         this.selectedFish = lis;
+    }
+
+    public String getInfo(String text) {
+        Printer p = new Printer();
+        return (p.getInfo(this.list, text));
+
     }
 
     /**
@@ -92,13 +99,13 @@ public class FishReferee {
      * @return String of species, one species per line.
      */
     public String getAvailableSpecies() {
-        String species = "";
-        for (Species x : this.list) {
-            species = species + System.lineSeparator() + x.getName();
-        }
-        System.out.print(species);
-        return species;
+        Printer p = new Printer();
+        return (p.getAvailableSpecies(this.toplist, this.midlist, this.bottomlist));
+    }
 
+    public String getFinalFish() {
+        Printer p = new Printer();
+        return (p.getFinalFish(selectedFish));
     }
 
     /**
@@ -115,6 +122,7 @@ public class FishReferee {
             i = i + x.getLengthOfAll();
         }
         return i;
+
     }
 
     /**
@@ -157,6 +165,18 @@ public class FishReferee {
         return this.list;
     }
 
+    private boolean doesFit(Species species) {
+
+        int overallLength = this.getLengthOfSelectedFish();
+        int specieLength = species.getLenght();
+
+        if (species.isSocial) {
+            specieLength *= 7;
+        }
+
+        return overallLength + specieLength >= this.aquarium.getVolume();
+    }
+
     /**
      * Generates an ArrayList which contains only species which can be selected
      * in the same aquarium with the species user has selected; Is based on the
@@ -169,43 +189,23 @@ public class FishReferee {
     public ArrayList updateAllSpeciesList(Species s) {
         ArrayList nList = (ArrayList) this.list.clone();
         Iterator<Species> i = nList.iterator();
+        addFishToTank(s);
 
         while (i.hasNext()) {
             Species x = i.next();
 
-            if (x.isSocial == true && this.getLengthOfSelectedFish() + x.getLenght() * 7 > this.aquarium.getVolume()) {
+            if (doesFit(x)) {
                 i.remove();
-            }
-            if (x.isSocial == false && this.getLengthOfSelectedFish() + x.getLenght() > this.aquarium.getVolume()) {
+            } else if (x.getTempMin() > s.getTempMax()) {
                 i.remove();
-            }
-
-            if (x.getTempMin() > s.getTempMax()) {
+            } else if (x.getMinpH() > s.getMaxpH()) {
                 i.remove();
-            }
-            if (x.getaqMinSize() > s.getaqMinSize()) {
+            } else if (x.getMaxpH() < s.getMinpH()) {
                 i.remove();
-            }
-            if (x.getMinpH() > s.getMaxpH()) {
-                i.remove();
-            }
-            if (x.getMaxpH() < s.getMinpH()) {
-                i.remove();
-            }
-            if (x.getTempMax() < s.getTempMin()) {
+            } else if (x.getTempMax() < s.getTempMin()) {
                 i.remove();
             }
 
-        }
-        if (s.isSocial == true) {
-            Fish fish = new Fish(this.aquarium, s, 7);
-            this.selectedFish.add(fish);
-            this.currentSpeciesCount = this.currentSpeciesCount + 1;
-        }
-        if (s.isSocial == false) {
-            Fish fish = new Fish(this.aquarium, s, 1);
-            this.selectedFish.add(fish);
-            this.currentSpeciesCount = this.currentSpeciesCount + 1;
         }
 
         nList.remove(s);
@@ -213,6 +213,20 @@ public class FishReferee {
         this.list = nList;
         return nList;
 
+    }
+
+    private void addFishToTank(Species s) {
+
+        Fish fish = null;
+
+        if (s.isSocial) {
+            fish = new Fish(this.aquarium, s, 7);
+        } else {
+            fish = new Fish(this.aquarium, s, 1);
+        }
+
+        this.selectedFish.add(fish);
+        this.currentSpeciesCount = this.currentSpeciesCount + 1;
     }
 
     /**
@@ -229,7 +243,8 @@ public class FishReferee {
             for (Species x : this.list) {
                 if (x.getName().equals(name)) {
                     this.updateAllSpeciesList(x);
-                    break;
+                    return true;
+
                 }
             }
 
@@ -237,7 +252,7 @@ public class FishReferee {
             System.out.println("Lista on tyhjä.");
             return false;
         }
-        return true;
+        return false;
 
     }
 
@@ -270,7 +285,9 @@ public class FishReferee {
                 }
 
                 if (sumLength > aqVolume) {
-                    f.setAmount(f.getAmount() - 1);
+                    if (f.getSpecies().isSocial) {
+                        f.setAmount(f.getAmount() - 1);
+                    }
                     stop = 5;
                     break;
                 }

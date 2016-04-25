@@ -9,9 +9,7 @@ import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Species;
 import akvaariokalasuosittelija.akvaariokalaprojekti.util.DataParser;
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  *
@@ -60,7 +58,7 @@ public class Library {
 
         for (String data : parsedData) {
             String[] parts = data.split(";");
-            Species s = createSpecie(parts);
+            Species s = createSpecies(parts);
 
             if (s.getaqMinSize() <= aqVolume) {
                 this.list.add(s);
@@ -68,14 +66,14 @@ public class Library {
         }
 
         if (this.list.isEmpty()) {
-            System.out.println("Näin pieneen akvaarioon ei voi laittaa kaloja.");
+            System.err.println("Näin pieneen akvaarioon ei voi laittaa kaloja.");
             return null;
         }
 
         return this.list;
     }
 
-    private Species createSpecie(String[] parts) throws NumberFormatException {
+    private Species createSpecies(String[] parts) throws NumberFormatException {
         Species s = new Species();
         s.setAqMinSize(Integer.parseInt(parts[5]));
         s.setFloor(parts[4]);
