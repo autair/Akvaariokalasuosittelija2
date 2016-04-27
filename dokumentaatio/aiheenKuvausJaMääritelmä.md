@@ -17,7 +17,7 @@ Akvaarioharrastajilla on jo aktiivinen keskustelupalsta [Aqua-Web](http://aqua-w
 ![Luokkakaavio](/theNEWClassDiagram.png)
 
 ####**Sekvenssikaavio tapauksesta, jossa käyttäjä syöttää akvaarion koon:**
-![sekvenssikaavio1](/sekvenssikaavio1.png)
+![sekvenssikaavio1](/uusisekvenssikaavio1.png)
 
 ####**Sekvenssikaavio tapauksesta, jossa käyttäjä valitsee ensimmäisen kalalajin:**
 ![sekvenssikaavio2](/sekvenssikaavio2.png)
