@@ -13,8 +13,8 @@ Tavallinen käyttäjä
 ####**Muuta huomioitavaa aiheesta:**
 Akvaarioharrastajilla on jo aktiivinen keskustelupalsta [Aqua-Web](http://aqua-web.fi/), joten tähän ohjelmaan ei rakenneta keskustelu- tai arvosteluominaisuuksia. Tämä ohjelma rakennetaan puhtaasti auttamaan uusia harrastajia sopivien kalojen löytämiseen.
 
-####**Määrittelyvaiheen luokkakaavio:**
-![Luokkakaavio](/luokkakaavio.png)
+####**Luokkakaavio:**
+![Luokkakaavio](/theNEWClassDiagram.png)
 
 ####**Sekvenssikaavio tapauksesta, jossa käyttäjä syöttää akvaarion koon:**
 ![sekvenssikaavio1](/sekvenssikaavio1.png)
