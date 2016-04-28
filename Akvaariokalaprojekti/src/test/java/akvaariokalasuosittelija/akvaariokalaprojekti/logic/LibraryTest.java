@@ -143,7 +143,7 @@ public class LibraryTest {
     @Test
     public void severalSpeciesIsAddedToCurrentList() {
         l.generateFirstFishlist(63);
-        assertEquals(8, l.getCurrentList().size());
+        assertEquals(11, l.getCurrentList().size());
     }
 
 }

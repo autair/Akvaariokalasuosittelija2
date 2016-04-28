@@ -46,6 +46,7 @@ public class Printer {
     }
 
     public String getInfo(ArrayList<Species> list, String text) {
+        String social = "erakko";
 
         try {
             for (Species spe : list) {
@@ -60,7 +61,10 @@ public class Printer {
                     if (spe.getFloor().equals("bottom")) {
                         floor = "pohja";
                     }
-                    String info = "Nimi: " + spe.getName() + "\n" + "Latinankielinen nimi: " + spe.getLatinName() + "\n" + "Akvaarion minimikoko litroissa: " + spe.getaqMinSize() + "\n" + "Uintikerros: " + floor + "\n" + "Pituus cm: " + spe.getLenght() + "\n" + "MinimipH: " + spe.getMinpH() + "\n" + "MaksimipH: " + spe.getMaxpH() + "\n" + "Minimilämpötila: " + spe.getTempMin() + "\n" + "Maksimilämpötila: " + spe.getTempMax();
+                    if (spe.isSocial) {
+                        social = "parvikala";
+                    }
+                    String info = "Nimi: " + spe.getName() + "\n" + "Latinankielinen nimi: " + spe.getLatinName() + "\n" + "Sosiaalisuus: " + social + "\n" + "Akvaarion minimikoko litroissa: " + spe.getaqMinSize() + "\n" + "Uintikerros: " + floor + "\n" + "Pituus cm: " + spe.getLenght() + "\n" + "MinimipH: " + spe.getMinpH() + "\n" + "MaksimipH: " + spe.getMaxpH() + "\n" + "Minimilämpötila: " + spe.getTempMin() + "\n" + "Maksimilämpötila: " + spe.getTempMax();
                     return info;
                 }
             }

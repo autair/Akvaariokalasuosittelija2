@@ -198,7 +198,7 @@ public class GUI extends javax.swing.JFrame {
         }
         
         if (this.aqsize < 40) {
-            showMessageDialog(this, "Akvaarion tilavuuden on oltava vähintään 40 litraa.");
+            showMessageDialog(this, "Akvaarion tilavuuden on oltava vähintään 40 litraa. Hyvin pienten akvaarioiden vesitasapainon säilyttäminen on vaikeaa.");
             return;
         }
         jButton1.setEnabled(false);
@@ -234,9 +234,9 @@ public class GUI extends javax.swing.JFrame {
         if (this.fishreferee.getAvailableSpecies().equals("") || this.fishreferee.update().equals("stop")) {
             jButton2.setEnabled(false);
             jTextField1.setEnabled(false);
-            jTextArea1.setText("olet valinnut sallitun määrän lajeja. ");
+            jTextArea1.setText("Olet valinnut sallitun määrän lajeja. ");
             this.fishreferee.makeFinalList();
-            jTextArea2.setText(this.fishreferee.getFinalFish());
+            jTextArea2.setText("Suositeltu kalasto: " + "\n" + this.fishreferee.getFinalFish());
             jButton3.setEnabled(false);
             return;
         }
@@ -257,7 +257,7 @@ public class GUI extends javax.swing.JFrame {
         jButton4.setEnabled(false);
         jTextField3.setEditable(false);
         this.fishreferee.makeFinalList();
-        jTextArea2.setText(this.fishreferee.getFinalFish());
+        jTextArea2.setText("Suositeltu kalasto: " + "\n" + this.fishreferee.getFinalFish());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

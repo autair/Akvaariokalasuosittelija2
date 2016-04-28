@@ -9,7 +9,6 @@ import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Aquarium;
 import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Fish;
 import akvaariokalasuosittelija.akvaariokalaprojekti.domain.Species;
 import akvaariokalasuosittelija.akvaariokalaprojekti.util.Printer;
-import java.lang.Math;
 import java.util.ArrayList;
 import java.util.Iterator;
 
