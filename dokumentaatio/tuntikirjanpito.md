@@ -21,5 +21,10 @@ Päivä | Tunnit | Kuvaus
 20.04.2016 | 2h | Sekvenssikaaviot, pientä koodausta
 21.04.2016 | 4h | Library luokan pienentäminen, testejä, GUI
 25.04.2016 | 7h | FishReferee luokan siistimistä + Printer -luokan luonti, GUI valmiiksi
+27.04.2016 | 2h | Uudet sekvenssi- ja luokkakaaviot
+28.04.2016 | 1h | Pientä siistimistä
+29.04.2016 | 2,5h | Printer -testiluokan luonti, siistimistä, jarin luonti         
+         
+
 
 
