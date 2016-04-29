@@ -13,6 +13,9 @@ Tavallinen käyttäjä
 ####**Muuta huomioitavaa aiheesta:**
 Akvaarioharrastajilla on jo aktiivinen keskustelupalsta [Aqua-Web](http://aqua-web.fi/), joten tähän ohjelmaan ei rakenneta keskustelu- tai arvosteluominaisuuksia. Tämä ohjelma rakennetaan puhtaasti auttamaan uusia harrastajia sopivien kalojen löytämiseen.
 
+####**Luokkien sanallinen kuvaus:**
+Ohjelman kannalta keskeisin luokka on FishReferee, joka hoitaa sopivien lajien suosittelun akvaarioon. Lajien tiedot sijaitsevat tekstitiedostossa, jonka lukemisen DataParser -luokka hoitaa. Library -luokan tehtävänä on luoda Species -luokan lajiolioita DataParserista saatavan tiedon perusteella. Lisäksi Library luo listan lajeista annetun akvaarion koon mukaan. Tämä lista annetaan FishRefereelle, joka päivittää tätä listaa käyttäjän valintojen ja lajien vesiarvovaatimusten mukaisesti. Printer -luokka tulostaa FishRefereen tietoja GUI:lle. Species, Fish ja Aquarium kuvaavat enimmäkseen vain ominaisuuksia, eivätkä sisällä varsinaista toiminnallisuutta juuri ollenkaan.
+
 ####**Luokkakaavio:**
 ![Luokkakaavio](/theNEWClassDiagram.png)
 
