@@ -1,4 +1,4 @@
-Käyttöohjeet
+###**Käyttöohjeet:**
 Akvaariokalasuosittelijalle annetaan ensin akvaarion koko litroissa. Akvaariokalasuosittelija ei suosittele lajeja alle 40 litraisiin
 akvaarioihin. Vaikka Valtioneuvoston uusin asetus koirien, kissojen ja muiden pienikokoisten seura- ja harrastuseläinten suojelusta ei enää
 sisälläkään suositusta akvaarion minimikoosta, noudatetaan tässä ohjelmassa edellisen asetuksen mukaista 40 litran minimikokoa.
