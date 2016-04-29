@@ -25,17 +25,22 @@ public class DataParser {
 
         List<String> parsedData = new ArrayList<>();
 
-        while (scanner.hasNextLine()) {
-            String line = scanner.nextLine();
+        try {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
 
-            if (line.isEmpty()) {
-                continue;
+                if (line.isEmpty()) {
+                    continue;
+                }
+                parsedData.add(line);
+
             }
-            parsedData.add(line);
 
+            scanner.close();
+
+        } catch (NullPointerException e) {
+            System.err.println("Tapahtui virhe: " + e.getMessage());
         }
-
-        scanner.close();
 
         return parsedData;
     }

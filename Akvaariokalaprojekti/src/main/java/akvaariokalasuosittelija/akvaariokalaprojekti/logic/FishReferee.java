@@ -50,6 +50,12 @@ public class FishReferee {
         this.selectedFish = lis;
     }
 
+    /**
+     * Asks Printer to get information from species named "text".
+     *
+     * @param text which name to search info
+     * @return information from species named text
+     */
     public String getInfo(String text) {
         Printer p = new Printer();
         return (p.getInfo(this.list, text));
@@ -102,6 +108,11 @@ public class FishReferee {
         return (p.getAvailableSpecies(this.toplist, this.midlist, this.bottomlist));
     }
 
+    /**
+     * Asks Printer to print recommended fish.
+     *
+     * @return string of recommended fish
+     */
     public String getFinalFish() {
         Printer p = new Printer();
         return (p.getFinalFish(selectedFish));

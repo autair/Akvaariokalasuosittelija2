@@ -11,14 +11,18 @@ import java.util.ArrayList;
 
 /**
  *
- * @author autair
+ * Class for printing info from FishReferee.
  */
 public class Printer {
 
-    public Printer() {
-
-    }
-
+    /**
+     * Lists available species according to their swimming floor.
+     *
+     * @param top list of species swimming at top floor
+     * @param mid list of species swimming at mid floor
+     * @param bottom list of species swimming at bottom floor
+     * @return String of species
+     */
     public String getAvailableSpecies(ArrayList<Species> top, ArrayList<Species> mid, ArrayList<Species> bottom) {
         String species = "";
         species = "Pintaveden kalat: ";
@@ -37,14 +41,31 @@ public class Printer {
         return species;
     }
 
+    /**
+     * Lists recommended fish and their amount.
+     *
+     * @param list list of recommended fish from FishReferee
+     * @return String of recommended fish
+     */
     public String getFinalFish(ArrayList<Fish> list) {
         String fish = "";
-        for (Fish x : list) {
-            fish = fish + System.lineSeparator() + x.getSpecies().getName() + ", " + x.getAmount() + " kpl";
+        try {
+            for (Fish x : list) {
+                fish = fish + System.lineSeparator() + x.getSpecies().getName() + ", " + x.getAmount() + " kpl";
+            }
+        } catch (NullPointerException e) {
+            System.err.println(e.getMessage());
         }
         return fish;
     }
 
+    /**
+     * Method for printing information from species.
+     *
+     * @param list list of available species from FishReferee
+     * @param text name of species to search information
+     * @return String formed information
+     */
     public String getInfo(ArrayList<Species> list, String text) {
         String social = "erakko";
 
