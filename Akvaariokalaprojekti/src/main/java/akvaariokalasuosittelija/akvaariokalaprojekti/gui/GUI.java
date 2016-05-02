@@ -15,15 +15,15 @@ import static javax.swing.JOptionPane.showMessageDialog;
  * @author autair
  */
 public class GUI extends javax.swing.JFrame {
-    
+
     private int aqsize;
     private FishReferee fishreferee;
-    
+
     public GUI() {
         initComponents();
-        
+
     }
-    
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -188,7 +188,7 @@ public class GUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
+
         try {
             this.aqsize = (Integer.parseInt(this.jTextField2.getText()));
         } catch (NumberFormatException e) { //käyttäjä syöttää muuta kuin numeroita
@@ -196,7 +196,7 @@ public class GUI extends javax.swing.JFrame {
             this.jTextField2.setText("");
             return;
         }
-        
+
         if (this.aqsize < 40) {
             showMessageDialog(this, "Akvaarion tilavuuden on oltava vähintään 40 litraa. Hyvin pienten akvaarioiden vesitasapainon säilyttäminen on vaikeaa.");
             return;
@@ -223,29 +223,31 @@ public class GUI extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         this.fishreferee.update();
-        String wantedName = jTextField1.getText();
+        String wantedName = jTextField1.getText().toLowerCase();
         //this.fishreferee.findSpecies(wantedName);
         if (this.fishreferee.findSpecies(wantedName) == false) {
             showMessageDialog(this, "Kirjoita jokin listalla oleva laji.");
             return;
         }
         this.fishreferee.findSpecies(wantedName);
-        
+
         if (this.fishreferee.getAvailableSpecies().equals("") || this.fishreferee.update().equals("stop")) {
             jButton2.setEnabled(false);
             jTextField1.setEnabled(false);
-            jTextArea1.setText("Olet valinnut sallitun määrän lajeja. ");
+            jTextArea1.setText("Olet valinnut sallitun määrän lajeja.\nTutustu lajien vesiarvovaatimuksiin ja hanki tarvittavat\nvesitestit akvaariosi vesiarvojen selvittämiseen.\nMuista myös seurata vesiarvoja ainakin ensimmäisten\nkuukausien ajan akvaarion perustamishetkestä.");
             this.fishreferee.makeFinalList();
             jTextArea2.setText("Suositeltu kalasto: " + "\n" + this.fishreferee.getFinalFish());
             jButton3.setEnabled(false);
+            jButton4.setEnabled(false);
+            jTextField3.setEnabled(false);
             return;
         }
-        
+
         jTextArea1.setText(this.fishreferee.getAvailableSpecies());
-        
+
         jTextField1.setText("");
         jButton3.setEnabled(true);
-        
+
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -257,12 +259,15 @@ public class GUI extends javax.swing.JFrame {
         jButton4.setEnabled(false);
         jTextField3.setEditable(false);
         this.fishreferee.makeFinalList();
+        jTextArea1.setText("Tutustu lajien vesiarvovaatimuksiin ja hanki tarvittavat\nvesitestit akvaariosi vesiarvojen selvittämiseen.\nMuista myös seurata vesiarvoja ainakin ensimmäisten\nkuukausien ajan akvaarion perustamishetkestä.");
         jTextArea2.setText("Suositeltu kalasto: " + "\n" + this.fishreferee.getFinalFish());
+        jButton4.setEnabled(false);
+        jTextField3.setEnabled(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        String toSearch = jTextField3.getText();
+        String toSearch = jTextField3.getText().toLowerCase();
         if (this.fishreferee.getInfo(toSearch).equals("")) {
             showMessageDialog(this, "Lajia ei löytynyt.");
         }
@@ -272,7 +277,7 @@ public class GUI extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
-    
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
