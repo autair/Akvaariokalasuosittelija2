@@ -24,4 +24,5 @@ Ohjelman kannalta keskeisin luokka on FishReferee, joka hoitaa sopivien lajien s
 ![sekvenssikaavio1](/uusisekvenssikaavio1.png)
 
 ####**Sekvenssikaavio tapauksesta, jossa käyttäjä valitsee ensimmäisen kalalajin:**
+Huom. metodikutsu getAvailableSpecies() FishRefereelle kulkee ylläolevan kaavion tapaan vielä Printer -luokan kautta.
 ![sekvenssikaavio2](/sekvenssikaavio2.png)
