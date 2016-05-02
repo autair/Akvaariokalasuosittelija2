@@ -24,7 +24,7 @@ Päivä | Tunnit | Kuvaus
 27.04.2016 | 2h | Uudet sekvenssi- ja luokkakaaviot
 28.04.2016 | 1h | Pientä siistimistä
 29.04.2016 | 2,5h | Printer -testiluokan luonti, siistimistä, jarin luonti         
-         
+02.05.2016 | 4h | Dokumentaation tarkennus, Jar ongelmien selvittäminen         
 
 
 
