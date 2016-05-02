@@ -3,7 +3,7 @@
 Akvaariokalasuosittelija. Tarkoituksena on tuottaa ohjelma, joka suosittelee käyttäjän akvaarioon sopivia kaloja.
 Akvaariokaloilla on yleisestä harhaluulosta huolimatta erilaisia vesiarvoihin, ruokintaan, seuralaisiin ja akvaarion kokoon liittyviä vaatimuksia. Aivan kuten pieniä villakoiria ei voi käyttää vetokoirina, eivät myöskään kaikki kalat sovi kaikkiin akvaarioihin tai keskenään yhteen. Ohjelman pohjana käytetään tietokantaa, johon on kerätty tietoa eri kalalajeista.
 Tämä ohjelma suunnitellaan vain makeanveden seura- ja lajiakvaarioita silmälläpitäen. 
-Ohjelman oletuksena on, että 1cm kalan pituutta tarvitsee yhden litran vettä. Tämä pätee, koska ohjelmassa käsitellään vain pienehköjä, seura-akvaarioihin soveltuvia lajeja.
+Ohjelman oletuksena on, että 1cm kalan pituutta tarvitsee yhden litran vettä. Tämä pätee, koska ohjelmassa käsitellään vain pienehköjä, seura-akvaarioihin soveltuvia lajeja. Ohjelma suosittelee kaloja vain vähintään 40 litraisiin akvaariohin.
 ####**Käyttäjät:**
 Tavallinen käyttäjä
 ####**Kaikkien käyttäjien toiminnot:**
