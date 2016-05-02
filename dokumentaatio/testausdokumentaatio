@@ -1,4 +1,4 @@
-##TESTAUSDOKUMENTAATIO##
+##**TESTAUSDOKUMENTAATIO**##
 Automaattisia testejä ei rakennettu GUI -luokalle eikä DataParser -luokalle.
 Ohjeistuksen mukaan testejä ei pitänyt rakentaakaan GUI:lle, mutta DataParserin
 testauksen tarpeellisuus jäi hieman tulkinnanvaraiseksi. En lopulta tehnyt sille
